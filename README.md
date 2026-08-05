@@ -12,6 +12,88 @@ This repository is the central showcase website for five open-source projects th
 - Jetson
 - AGX
 - Orin
+- Three-tier
+- architecture
+- (Driver,
+- Server,
+- GUI)
+- per
+- project
+- Cortex
+- Forge:
+- ML
+- acceleration
+- with
+- NVDLA
+- and
+- PVA
+- Iris
+- Flow:
+- Camera
+- and
+- ISP
+- vision
+- pipeline
+- Reel
+- Forge:
+- Hardware
+- video
+- encode/decode
+- processing
+- Nexus
+- Bus:
+- Unified
+- peripheral
+- bus
+- access
+- Volt
+- Guard:
+- Power
+- management
+- and
+- monitoring
+- 15
+- Linux
+- kernel
+- drivers
+- with
+- platform
+- abstraction
+- 15
+- C++17
+- gRPC
+- servers
+- with
+- Catch2
+- tests
+- 15
+- PySide6
+- desktop
+- GUIs
+- with
+- dark
+- theme
+- All
+- projects
+- audited
+- and
+- scored
+- 90/100+
+- Comprehensive
+- documentation
+- per
+- repository
+- CI/CD
+- ready
+- with
+- setup
+- guides
+- Open
+- source
+- (MIT
+- and
+- GPL-2.0
+- licensed)
 
 ## Quick Start
 
@@ -24,16 +106,6 @@ This repository is the central showcase website for five open-source projects th
 make all      # Build all targets
 make test     # Run tests
 make clean    # Clean build artifacts
-```
-
-## Architecture
-
-```
-Driver (kernel module) ──► Server (gRPC) ──► GUI (PySide6)
-     │                        │                    │
-     ▼                        ▼                    ▼
-  Hardware              C++ Service           Desktop App
-  Access                Layer                 (macOS/Linux/Win)
 ```
 
 ## Repository Structure
@@ -51,10 +123,10 @@ Driver (kernel module) ──► Server (gRPC) ──► GUI (PySide6)
 ## Project Status
 
 **Version:** 0.1.0 — Initial release
-**License:** Three-tier architecture (Driver, Server, GUI) per project
+**License:** MIT
 **Audit Score:** 90/100
 
-## 🌐 Ecosystem
+## Ecosystem
 
 This project is part of the [Jetson AGX Orin Capability Showcase](https://github.com/soccentric-jetson-oss/soccentric-jetson-oss) — five open-source projects demonstrating full exploitation of NVIDIA's flagship edge AI platform.
 
@@ -64,4 +136,4 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines. All contributions welcome
 
 ## License
 
-Three-tier architecture (Driver, Server, GUI) per project. See [LICENSE](LICENSE) for details.
+MIT. See [LICENSE](LICENSE) for details.
