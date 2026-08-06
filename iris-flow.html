@@ -5,23 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Iris Flow — Vision Core | SoCCentric Jetson</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%2322c55e'>⚡</text></svg>">
   <style>
-    .project-header h1 { color: hsl(var(--if)); }
-    .sub-card h3 { color: hsl(var(--if)); }
-    .sub-card .repo-link { background: hsl(var(--if)); }
-    .sub-card .tech { background: hsl(var(--if-bg)); color: hsl(var(--if)); border-color: hsl(var(--if) / 0.3); }
-    .flow-node.hardware svg { color: #E65100; }
-    .flow-node.driver svg { color: hsl(var(--if)); }
-    .flow-node.server svg { color: hsl(var(--if)); }
-    .flow-node.gui svg { color: hsl(var(--nb)); }
+    :root { --card-accent: var(--if); --card-glow-color: var(--if-glow); }
+    .project-hero h1 { background: linear-gradient(135deg, var(--if), #4ade80); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .sub-card::before { background: linear-gradient(90deg, var(--if), transparent); }
+    .sub-card .repo-link { background: linear-gradient(135deg, var(--if), #4ade80); box-shadow: 0 0 20px var(--if-glow); }
+    .sub-card h3 { color: var(--if); }
+    .sub-card .tech { border-color: rgba(34,197,94,0.2); color: var(--if); }
   </style>
 </head>
 <body>
+  <div class="bg-grid"></div>
+  <div class="bg-glow"></div>
+  <div class="cursor-glow" id="cursorGlow"></div>
 
   <nav class="nav">
     <div class="nav-inner">
-      <a href="index.html" class="nav-logo">SoCCentric <span>Jetson</span></a>
+      <a href="index.html" class="nav-logo">
+        <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
+          <circle cx="12" cy="10" r="3" fill="currentColor" opacity="0.3"/>
+        </svg>
+        SoCCentric <span>Jetson</span>
+      </a>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="cortex-forge.html">Cortex Forge</a></li>
@@ -36,39 +43,49 @@
   <div class="container">
     <div class="project-page">
 
-      <!-- Header -->
-      <div class="project-header">
-        <div class="color-bar" style="background:hsl(var(--if))"></div>
+      <div class="project-hero">
+        <svg class="project-icon-large" viewBox="0 0 80 80" fill="none">
+          <rect x="4" y="4" width="72" height="72" rx="16" stroke="currentColor" stroke-width="1.5" opacity="0.15"/>
+          <circle cx="40" cy="40" r="22" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="40" cy="40" r="14" stroke="currentColor" stroke-width="1" opacity="0.5"/>
+          <circle cx="40" cy="40" r="6" fill="currentColor" opacity="0.1"/>
+          <circle cx="40" cy="40" r="2" fill="currentColor" opacity="0.4"/>
+          <path d="M40 18v-4M40 66v4M18 40h-4M66 40h4" stroke="currentColor" stroke-width="1.5" opacity="0.3" stroke-linecap="round"/>
+          <rect x="36" y="8" width="8" height="4" rx="1" fill="currentColor" opacity="0.15"/>
+        </svg>
         <h1>Iris Flow</h1>
         <p class="subtitle">Vision Pipelining Core — our go-to framework for camera and vision pipelines on Jetson. Drives the 16-lane MIPI CSI-2 interface, ISP for raw Bayer sensors up to 24MP, and multi-stream handling for up to 6 cameras. We've used this across dozens of projects — from thermal imaging to autonomous navigation.</p>
-      </div>
-
-      <!-- SVG Flow Diagram -->
-      <div class="flow-diagram" style="padding:20px 0 40px">
-        <div class="flow-node hardware" style="background:#FFF3E0">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-          <span class="label">MIPI CSI-2 + ISP<br><small>Camera Hardware</small></span>
-        </div>
-        <span class="flow-arrow">→</span>
-        <div class="flow-node driver" style="background:hsl(var(--if-bg))">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/><line x1="10" y1="3" x2="14" y2="21"/></svg>
-          <span class="label">iris-flow-driver<br><small>Linux Kernel Module</small></span>
-        </div>
-        <span class="flow-arrow">→</span>
-        <div class="flow-node server" style="background:hsl(var(--if-bg))">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
-          <span class="label">iris-flow-server<br><small>C++17 gRPC Server</small></span>
-        </div>
-        <span class="flow-arrow">→</span>
-        <div class="flow-node gui" style="background:hsl(var(--nb-bg))">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-          <span class="label">iris-flow-gui<br><small>PySide6 Desktop</small></span>
+        <div class="project-meta">
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Since 2015</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg> 3 Repositories</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg> C · C++17 · Python</span>
         </div>
       </div>
 
-      <!-- Overview -->
-      <div class="section">
-        <h2>Overview</h2>
+      <div class="flow-track" style="padding:20px 0 40px">
+        <div class="flow-step" style="background:rgba(249,115,22,0.06);border-color:rgba(249,115,22,0.15);">
+          <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          <span class="step-label">MIPI CSI-2 + ISP<small>Camera Hardware</small></span>
+        </div>
+        <div class="flow-connector"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><polyline points="12 5 19 12 12 19"/></svg></div>
+        <div class="flow-step" style="background:rgba(34,197,94,0.06);border-color:rgba(34,197,94,0.15);">
+          <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/><line x1="10" y1="3" x2="14" y2="21"/></svg>
+          <span class="step-label">iris-flow-driver<small>Linux Kernel Module</small></span>
+        </div>
+        <div class="flow-connector"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><polyline points="12 5 19 12 12 19"/></svg></div>
+        <div class="flow-step" style="background:rgba(34,197,94,0.06);border-color:rgba(34,197,94,0.15);">
+          <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+          <span class="step-label">iris-flow-server<small>C++17 gRPC Server</small></span>
+        </div>
+        <div class="flow-connector"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><polyline points="12 5 19 12 12 19"/></svg></div>
+        <div class="flow-step" style="background:rgba(139,92,246,0.06);border-color:rgba(139,92,246,0.15);">
+          <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          <span class="step-label">iris-flow-gui<small>PySide6 Desktop</small></span>
+        </div>
+      </div>
+
+      <div class="section reveal">
+        <h2>Overview <span class="section-line"></span></h2>
         <p>Iris Flow is one of the five building blocks we've extracted from our internal Jetson projects — refined over years of real-world use across TX1, TX2, Xavier, Orin, and Thor. It's the vision pipeline we bootstrap every camera project with. The architecture follows our standard three-tier pattern: a Linux kernel driver for direct MIPI CSI-2 and ISP access, a C++17 gRPC server for frame processing and pipeline configuration, and a PySide6 desktop GUI for live preview and ISP tuning.</p>
         <ul>
           <li><strong>Multi-Stream Camera</strong> — Supports up to 6 simultaneous camera streams over the 16-lane MIPI CSI-2 interface, with independent resolution and format configuration per stream.</li>
@@ -80,11 +97,9 @@
         </ul>
       </div>
 
-      <!-- Architecture -->
-      <div class="section">
-        <h2>Architecture</h2>
+      <div class="section reveal">
+        <h2>Architecture <span class="section-line"></span></h2>
         <div class="sub-grid">
-
           <div class="sub-card">
             <div class="sub-header">
               <h3>Kernel Driver</h3>
@@ -99,9 +114,8 @@
               <li>Device tree overlay for IMX708 sensor module with compatible string and pinmux configuration</li>
               <li>sysfs attributes for sensor status and debugfs interface for ISP register diagnostics</li>
             </ul>
-            <a class="repo-link" href="https://github.com/soccentric-jetson-oss/iris-flow-driver">View Repository →</a>
+            <a class="repo-link" href="https://github.com/soccentric-jetson-oss/iris-flow-driver">View Repository <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><polyline points="12 5 19 12 12 19"/></svg></a>
           </div>
-
           <div class="sub-card">
             <div class="sub-header">
               <h3>gRPC Server</h3>
@@ -116,9 +130,8 @@
               <li>FFmpeg integration for hardware-accelerated encoding and streaming output</li>
               <li>Catch2 unit tests with edge case coverage for stream configuration and ISP parameter validation</li>
             </ul>
-            <a class="repo-link" href="https://github.com/soccentric-jetson-oss/iris-flow-server">View Repository →</a>
+            <a class="repo-link" href="https://github.com/soccentric-jetson-oss/iris-flow-server">View Repository <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><polyline points="12 5 19 12 12 19"/></svg></a>
           </div>
-
           <div class="sub-card">
             <div class="sub-header">
               <h3>Desktop GUI</h3>
@@ -133,14 +146,12 @@
               <li>BigButtonBox widgets for primary actions with large rounded buttons and hover states</li>
               <li>Light theme with white backgrounds, blue accent (#1976D2), and dark text (#212121)</li>
             </ul>
-            <a class="repo-link" href="https://github.com/soccentric-jetson-oss/iris-flow-gui">View Repository →</a>
+            <a class="repo-link" href="https://github.com/soccentric-jetson-oss/iris-flow-gui">View Repository <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><polyline points="12 5 19 12 12 19"/></svg></a>
           </div>
-
         </div>
       </div>
 
     </div>
-
     <div class="footer">
       <p><a href="index.html" class="back-link">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg>
@@ -149,5 +160,11 @@
     </div>
   </div>
 
+  <script>
+    const cursor = document.getElementById('cursorGlow');
+    document.addEventListener('mousemove', (e) => { cursor.style.left = e.clientX + 'px'; cursor.style.top = e.clientY + 'px'; });
+    const observer = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
 </body>
 </html>
