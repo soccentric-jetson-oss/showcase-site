@@ -5,27 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Volt Guard — Power Core | SoCCentric Jetson</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%23ef4444'>⚡</text></svg>">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%23cf222e'>⚡</text></svg>">
   <style>
-    :root { --card-accent: var(--vg); --card-glow-color: var(--vg-glow); }
-    .project-hero h1 { background: linear-gradient(135deg, var(--vg), #f87171); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-    .sub-card::before { background: linear-gradient(90deg, var(--vg), transparent); }
-    .sub-card .repo-link { background: linear-gradient(135deg, var(--vg), #f87171); box-shadow: 0 0 20px var(--vg-glow); }
+    .project-header h1 { color: var(--vg); }
     .sub-card h3 { color: var(--vg); }
-    .sub-card .tech { border-color: rgba(239,68,68,0.2); color: var(--vg); }
+    .sub-card .repo-link { background: var(--vg); }
+    .sub-card .tech { background: #ffe9e9; color: var(--vg); border-color: #ffc1c1; }
   </style>
 </head>
 <body>
-  <div class="bg-grid"></div>
-  <div class="bg-glow"></div>
-  <div class="cursor-glow" id="cursorGlow"></div>
 
   <nav class="nav">
     <div class="nav-inner">
       <a href="index.html" class="nav-logo">
         <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
-          <circle cx="12" cy="10" r="3" fill="currentColor" opacity="0.3"/>
         </svg>
         SoCCentric <span>Jetson</span>
       </a>
@@ -43,53 +37,41 @@
   <div class="container">
     <div class="project-page">
 
-      <div class="project-hero">
-        <svg class="project-icon-large" viewBox="0 0 80 80" fill="none">
-          <rect x="4" y="4" width="72" height="72" rx="16" stroke="currentColor" stroke-width="1.5" opacity="0.15"/>
-          <rect x="20" y="16" width="40" height="48" rx="8" stroke="currentColor" stroke-width="1.5"/>
-          <rect x="28" y="24" width="24" height="32" rx="4" stroke="currentColor" stroke-width="1" opacity="0.4"/>
-          <path d="M36 38l3 3 5-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.6"/>
-          <line x1="28" y1="30" x2="20" y2="30" stroke="currentColor" stroke-width="1" opacity="0.3"/>
-          <line x1="28" y1="40" x2="20" y2="40" stroke="currentColor" stroke-width="1" opacity="0.3"/>
-          <line x1="28" y1="50" x2="20" y2="50" stroke="currentColor" stroke-width="1" opacity="0.3"/>
-          <line x1="52" y1="30" x2="60" y2="30" stroke="currentColor" stroke-width="1" opacity="0.3"/>
-          <line x1="52" y1="40" x2="60" y2="40" stroke="currentColor" stroke-width="1" opacity="0.3"/>
-          <line x1="52" y1="50" x2="60" y2="50" stroke="currentColor" stroke-width="1" opacity="0.3"/>
-          <text x="40" y="72" text-anchor="middle" fill="currentColor" font-size="7" opacity="0.2" font-family="'JetBrains Mono',monospace">15-60W</text>
-        </svg>
+      <div class="project-header">
+        <div class="color-bar" style="background:var(--vg)"></div>
         <h1>Volt Guard</h1>
         <p class="subtitle">Power Management Core — our internal framework for controlling the Jetson power envelope. Manages the 15W–60W range, dynamic mode switching, PMIC voltage rail sequencing, and real-time telemetry for voltage, current, and temperature. Essential for every deployment where power budgets actually matter.</p>
         <div class="project-meta">
-          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Since 2015</span>
-          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg> 3 Repositories</span>
-          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg> C · C++17 · Python</span>
+          <span>Since 2015</span>
+          <span>3 Repositories</span>
+          <span>C · C++17 · Python</span>
         </div>
       </div>
 
-      <div class="flow-track" style="padding:20px 0 40px">
-        <div class="flow-step" style="background:rgba(249,115,22,0.06);border-color:rgba(249,115,22,0.15);">
+      <div class="flow-track" style="padding:0 0 32px">
+        <div class="flow-step" style="background:#f6f8fa;border-color:#d0d7de;">
           <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
           <span class="step-label">PMIC + Voltage Rails<small>Power Hardware</small></span>
         </div>
         <div class="flow-connector"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><polyline points="12 5 19 12 12 19"/></svg></div>
-        <div class="flow-step" style="background:rgba(239,68,68,0.06);border-color:rgba(239,68,68,0.15);">
+        <div class="flow-step" style="background:#ffe9e9;border-color:#ffc1c1;">
           <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/><line x1="10" y1="3" x2="14" y2="21"/></svg>
           <span class="step-label">volt-guard-driver<small>Linux Kernel Module</small></span>
         </div>
         <div class="flow-connector"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><polyline points="12 5 19 12 12 19"/></svg></div>
-        <div class="flow-step" style="background:rgba(34,197,94,0.06);border-color:rgba(34,197,94,0.15);">
-          <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+        <div class="flow-step" style="background:#ffe9e9;border-color:#ffc1c1;">
+          <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/></svg>
           <span class="step-label">volt-guard-server<small>C++17 gRPC Server</small></span>
         </div>
         <div class="flow-connector"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><polyline points="12 5 19 12 12 19"/></svg></div>
-        <div class="flow-step" style="background:rgba(139,92,246,0.06);border-color:rgba(139,92,246,0.15);">
+        <div class="flow-step" style="background:#f6f8fa;border-color:#d0d7de;">
           <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
           <span class="step-label">volt-guard-gui<small>PySide6 Desktop</small></span>
         </div>
       </div>
 
-      <div class="section reveal">
-        <h2>Overview <span class="section-line"></span></h2>
+      <div class="section">
+        <h2>Overview</h2>
         <p>Volt Guard is one of the five building blocks we've extracted from our internal Jetson projects — refined across TX1, TX2, Xavier, Orin, and Thor since 2015. It's the power management framework we use in every deployment where thermal and power constraints are critical. The architecture follows our standard three-tier pattern: a Linux kernel driver for direct PMIC and voltage rail access, a C++17 gRPC server for power configuration and telemetry, and a PySide6 desktop GUI for real-time power monitoring and control.</p>
         <ul>
           <li><strong>Dynamic Power Mode Switching</strong> — Programmatic control over the 15W–60W power envelope with seamless mode transitions and automatic thermal management.</li>
@@ -101,8 +83,8 @@
         </ul>
       </div>
 
-      <div class="section reveal">
-        <h2>Architecture <span class="section-line"></span></h2>
+      <div class="section">
+        <h2>Architecture</h2>
         <div class="sub-grid">
           <div class="sub-card">
             <div class="sub-header">
@@ -118,7 +100,7 @@
               <li>Comprehensive test suite with power state transition testing and edge case coverage</li>
               <li>sysfs attributes for power rail status and debugfs interface for PMIC register diagnostics</li>
             </ul>
-            <a class="repo-link" href="https://github.com/soccentric-jetson-oss/volt-guard-driver">View Repository <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><polyline points="12 5 19 12 12 19"/></svg></a>
+            <a class="repo-link" href="https://github.com/soccentric-jetson-oss/volt-guard-driver">View Repository →</a>
           </div>
           <div class="sub-card">
             <div class="sub-header">
@@ -134,7 +116,7 @@
               <li>Server-streaming endpoints for real-time telemetry and alert notifications</li>
               <li>Catch2 unit tests with 20+ test cases covering all service operations</li>
             </ul>
-            <a class="repo-link" href="https://github.com/soccentric-jetson-oss/volt-guard-server">View Repository <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><polyline points="12 5 19 12 12 19"/></svg></a>
+            <a class="repo-link" href="https://github.com/soccentric-jetson-oss/volt-guard-server">View Repository →</a>
           </div>
           <div class="sub-card">
             <div class="sub-header">
@@ -150,7 +132,7 @@
               <li>BigButtonBox widgets for primary actions with large rounded buttons and hover states</li>
               <li>Light theme with white backgrounds, blue accent (#1976D2), and dark text (#212121)</li>
             </ul>
-            <a class="repo-link" href="https://github.com/soccentric-jetson-oss/volt-guard-gui">View Repository <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><polyline points="12 5 19 12 12 19"/></svg></a>
+            <a class="repo-link" href="https://github.com/soccentric-jetson-oss/volt-guard-gui">View Repository →</a>
           </div>
         </div>
       </div>
@@ -159,16 +141,10 @@
     <div class="footer">
       <p><a href="index.html" class="back-link">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg>
-        Back to Showcase
+        Back
       </a></p>
     </div>
   </div>
 
-  <script>
-    const cursor = document.getElementById('cursorGlow');
-    document.addEventListener('mousemove', (e) => { cursor.style.left = e.clientX + 'px'; cursor.style.top = e.clientY + 'px'; });
-    const observer = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.1 });
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-  </script>
 </body>
 </html>

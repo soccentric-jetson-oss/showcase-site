@@ -5,27 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nexus Bus — Peripheral Core | SoCCentric Jetson</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%238b5cf6'>⚡</text></svg>">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%238250df'>⚡</text></svg>">
   <style>
-    :root { --card-accent: var(--nb); --card-glow-color: var(--nb-glow); }
-    .project-hero h1 { background: linear-gradient(135deg, var(--nb), #a78bfa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-    .sub-card::before { background: linear-gradient(90deg, var(--nb), transparent); }
-    .sub-card .repo-link { background: linear-gradient(135deg, var(--nb), #a78bfa); box-shadow: 0 0 20px var(--nb-glow); }
+    .project-header h1 { color: var(--nb); }
     .sub-card h3 { color: var(--nb); }
-    .sub-card .tech { border-color: rgba(139,92,246,0.2); color: var(--nb); }
+    .sub-card .repo-link { background: var(--nb); }
+    .sub-card .tech { background: #fbefff; color: var(--nb); border-color: #d8b4fe; }
   </style>
 </head>
 <body>
-  <div class="bg-grid"></div>
-  <div class="bg-glow"></div>
-  <div class="cursor-glow" id="cursorGlow"></div>
 
   <nav class="nav">
     <div class="nav-inner">
       <a href="index.html" class="nav-logo">
         <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
-          <circle cx="12" cy="10" r="3" fill="currentColor" opacity="0.3"/>
         </svg>
         SoCCentric <span>Jetson</span>
       </a>
@@ -43,54 +37,41 @@
   <div class="container">
     <div class="project-page">
 
-      <div class="project-hero">
-        <svg class="project-icon-large" viewBox="0 0 80 80" fill="none">
-          <rect x="4" y="4" width="72" height="72" rx="16" stroke="currentColor" stroke-width="1.5" opacity="0.15"/>
-          <circle cx="40" cy="40" r="10" stroke="currentColor" stroke-width="1.5"/>
-          <circle cx="40" cy="40" r="4" fill="currentColor" opacity="0.15"/>
-          <line x1="40" y1="30" x2="40" y2="18" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
-          <line x1="40" y1="50" x2="40" y2="62" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
-          <line x1="30" y1="40" x2="18" y2="40" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
-          <line x1="50" y1="40" x2="62" y2="40" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
-          <circle cx="40" cy="18" r="3" stroke="currentColor" stroke-width="1" opacity="0.3"/>
-          <circle cx="40" cy="62" r="3" stroke="currentColor" stroke-width="1" opacity="0.3"/>
-          <circle cx="18" cy="40" r="3" stroke="currentColor" stroke-width="1" opacity="0.3"/>
-          <circle cx="62" cy="40" r="3" stroke="currentColor" stroke-width="1" opacity="0.3"/>
-          <text x="40" y="44" text-anchor="middle" fill="currentColor" font-size="10" font-weight="700" opacity="0.3" font-family="'JetBrains Mono',monospace">BUS</text>
-        </svg>
+      <div class="project-header">
+        <div class="color-bar" style="background:var(--nb)"></div>
         <h1>Nexus Bus</h1>
         <p class="subtitle">Peripheral Access Core — our unified framework for all bus I/O on Jetson. Wraps GPIO (40-pin), 8 I2C controllers, 3 SPI, 4 UART, and 2 CAN interfaces into a single character device and gRPC API. We built this because every project needs peripherals, and we got tired of rewriting the same boilerplate.</p>
         <div class="project-meta">
-          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Since 2015</span>
-          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg> 3 Repositories</span>
-          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg> C · C++17 · Python</span>
+          <span>Since 2015</span>
+          <span>3 Repositories</span>
+          <span>C · C++17 · Python</span>
         </div>
       </div>
 
-      <div class="flow-track" style="padding:20px 0 40px">
-        <div class="flow-step" style="background:rgba(249,115,22,0.06);border-color:rgba(249,115,22,0.15);">
+      <div class="flow-track" style="padding:0 0 32px">
+        <div class="flow-step" style="background:#f6f8fa;border-color:#d0d7de;">
           <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
           <span class="step-label">GPIO + I2C + SPI + UART + CAN<small>Bus Hardware</small></span>
         </div>
         <div class="flow-connector"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><polyline points="12 5 19 12 12 19"/></svg></div>
-        <div class="flow-step" style="background:rgba(139,92,246,0.06);border-color:rgba(139,92,246,0.15);">
+        <div class="flow-step" style="background:#fbefff;border-color:#d8b4fe;">
           <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/><line x1="10" y1="3" x2="14" y2="21"/></svg>
           <span class="step-label">nexus-bus-driver<small>Linux Kernel Module</small></span>
         </div>
         <div class="flow-connector"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><polyline points="12 5 19 12 12 19"/></svg></div>
-        <div class="flow-step" style="background:rgba(34,197,94,0.06);border-color:rgba(34,197,94,0.15);">
-          <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+        <div class="flow-step" style="background:#fbefff;border-color:#d8b4fe;">
+          <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/></svg>
           <span class="step-label">nexus-bus-server<small>C++17 gRPC Server</small></span>
         </div>
         <div class="flow-connector"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><polyline points="12 5 19 12 12 19"/></svg></div>
-        <div class="flow-step" style="background:rgba(139,92,246,0.06);border-color:rgba(139,92,246,0.15);">
+        <div class="flow-step" style="background:#f6f8fa;border-color:#d0d7de;">
           <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
           <span class="step-label">nexus-bus-gui<small>PySide6 Desktop</small></span>
         </div>
       </div>
 
-      <div class="section reveal">
-        <h2>Overview <span class="section-line"></span></h2>
+      <div class="section">
+        <h2>Overview</h2>
         <p>Nexus Bus is one of the five building blocks we've extracted from our internal Jetson projects — battle-tested across TX1, TX2, Xavier, Orin, and Thor since 2015. It's the peripheral access layer we drop into every project that needs to talk to the outside world. The architecture follows our standard three-tier pattern: a Linux kernel driver for direct GPIO/I2C/SPI/UART/CAN access, a C++17 gRPC server for unified peripheral access over the network, and a PySide6 desktop GUI for real-time bus monitoring and control.</p>
         <ul>
           <li><strong>Unified Peripheral Interface</strong> — Single character device interface for all bus protocols with consistent read/write semantics and error handling.</li>
@@ -102,8 +83,8 @@
         </ul>
       </div>
 
-      <div class="section reveal">
-        <h2>Architecture <span class="section-line"></span></h2>
+      <div class="section">
+        <h2>Architecture</h2>
         <div class="sub-grid">
           <div class="sub-card">
             <div class="sub-header">
@@ -119,7 +100,7 @@
               <li>Comprehensive test suite with multi-bus stress testing and edge case coverage</li>
               <li>sysfs attributes for bus status and debugfs interface for transaction diagnostics</li>
             </ul>
-            <a class="repo-link" href="https://github.com/soccentric-jetson-oss/nexus-bus-driver">View Repository <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><polyline points="12 5 19 12 12 19"/></svg></a>
+            <a class="repo-link" href="https://github.com/soccentric-jetson-oss/nexus-bus-driver">View Repository →</a>
           </div>
           <div class="sub-card">
             <div class="sub-header">
@@ -135,7 +116,7 @@
               <li>Server-streaming endpoints for real-time bus monitoring and event notifications</li>
               <li>Catch2 unit tests with 25+ test cases covering all service operations</li>
             </ul>
-            <a class="repo-link" href="https://github.com/soccentric-jetson-oss/nexus-bus-server">View Repository <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><polyline points="12 5 19 12 12 19"/></svg></a>
+            <a class="repo-link" href="https://github.com/soccentric-jetson-oss/nexus-bus-server">View Repository →</a>
           </div>
           <div class="sub-card">
             <div class="sub-header">
@@ -151,7 +132,7 @@
               <li>BigButtonBox widgets for primary actions with large rounded buttons and hover states</li>
               <li>Light theme with white backgrounds, blue accent (#1976D2), and dark text (#212121)</li>
             </ul>
-            <a class="repo-link" href="https://github.com/soccentric-jetson-oss/nexus-bus-gui">View Repository <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><polyline points="12 5 19 12 12 19"/></svg></a>
+            <a class="repo-link" href="https://github.com/soccentric-jetson-oss/nexus-bus-gui">View Repository →</a>
           </div>
         </div>
       </div>
@@ -160,16 +141,10 @@
     <div class="footer">
       <p><a href="index.html" class="back-link">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg>
-        Back to Showcase
+        Back
       </a></p>
     </div>
   </div>
 
-  <script>
-    const cursor = document.getElementById('cursorGlow');
-    document.addEventListener('mousemove', (e) => { cursor.style.left = e.clientX + 'px'; cursor.style.top = e.clientY + 'px'; });
-    const observer = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.1 });
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-  </script>
 </body>
 </html>
