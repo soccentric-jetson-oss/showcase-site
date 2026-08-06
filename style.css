@@ -390,7 +390,11 @@ body {
 .section li strong { color: var(--text); font-weight: 600; }
 
 /* ── Sub-project Cards ────────────────────────────────────────────────── */
-.sub-grid { display: grid; gap: 16px; }
+.sub-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
 
 .sub-card {
   padding: 24px;
@@ -499,6 +503,7 @@ body {
 /* ── Responsive ───────────────────────────────────────────────────────── */
 @media (max-width: 1024px) {
   .projects { grid-template-columns: repeat(2, 1fr); }
+  .sub-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 768px) {
@@ -510,4 +515,5 @@ body {
   .stats { gap: 24px; }
   .stat-num { font-size: 22px; }
   .projects { grid-template-columns: 1fr; }
+  .sub-grid { grid-template-columns: 1fr; }
 }
