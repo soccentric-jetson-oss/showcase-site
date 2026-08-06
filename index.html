@@ -1,157 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jetson AGX Orin — Capability Showcase</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SoCCentric Jetson — Building Blocks for Jetson</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
 
-<!-- Navigation -->
-<nav class="nav">
-  <div class="nav-inner">
-    <a href="index.html" class="nav-logo">Jetson AGX Orin <span>Showcase</span></a>
-    <ul class="nav-links">
-      <li><a href="index.html" class="active">Home</a></li>
-      <li><a href="cortex-forge.html">Cortex Forge</a></li>
-      <li><a href="iris-flow.html">Iris Flow</a></li>
-      <li><a href="reel-forge.html">Reel Forge</a></li>
-      <li><a href="nexus-bus.html">Nexus Bus</a></li>
-      <li><a href="volt-guard.html">Volt Guard</a></li>
-    </ul>
-  </div>
-</nav>
-
-<div class="container">
-
-  <!-- Hero -->
-  <div class="hero">
-    <h1>Jetson AGX Orin<br><span>Capability Showcase</span></h1>
-    <p>Five open-source projects that demonstrate full exploitation of the NVIDIA Jetson AGX Orin's hardware — ML acceleration, vision pipelining, video processing, peripheral access, and power management. Each project follows a three-tier architecture.</p>
-  </div>
-
-  <!-- SVG Flow Diagram -->
-  <div class="flow-diagram">
-    <!-- Hardware -->
-    <div class="flow-node hardware">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
-        <line x1="8" y1="21" x2="16" y2="21"/>
-        <line x1="12" y1="17" x2="12" y2="21"/>
-        <path d="M6 7h12v6H6z"/>
-      </svg>
-      <span class="label">Hardware<br><small>Jetson AGX Orin</small></span>
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">SoCCentric <span>Jetson</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="cortex-forge.html">Cortex Forge</a></li>
+        <li><a href="iris-flow.html">Iris Flow</a></li>
+        <li><a href="reel-forge.html">Reel Forge</a></li>
+        <li><a href="nexus-bus.html">Nexus Bus</a></li>
+        <li><a href="volt-guard.html">Volt Guard</a></li>
+      </ul>
     </div>
-    <span class="flow-arrow">→</span>
+  </nav>
 
-    <!-- Driver -->
-    <div class="flow-node driver">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-        <polyline points="16 18 22 12 16 6"/>
-        <polyline points="8 6 2 12 8 18"/>
-        <line x1="10" y1="3" x2="14" y2="21"/>
-      </svg>
-      <span class="label">Kernel Driver<br><small>C · Linux Module</small></span>
+  <div class="container">
+
+    <!-- Hero -->
+    <div class="hero">
+      <h1>Building Blocks<br><span>for Jetson</span></h1>
+      <p>We've been building on NVIDIA Jetson since the TX1 in 2015 — over a dozen projects across TX1, TX2, Xavier, Orin, and Thor. This is our attempt to open-source some of the frameworks and building blocks we use internally to kickstart every new project. Sharing what we know helps us grow too. Hope it does the same for you.</p>
     </div>
-    <span class="flow-arrow">→</span>
 
-    <!-- Server -->
-    <div class="flow-node server">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-        <rect x="2" y="2" width="20" height="8" rx="2" ry="2"/>
-        <rect x="2" y="14" width="20" height="8" rx="2" ry="2"/>
-        <line x1="6" y1="6" x2="6.01" y2="6"/>
-        <line x1="6" y1="18" x2="6.01" y2="18"/>
-      </svg>
-      <span class="label">gRPC Server<br><small>C++17 · CMake</small></span>
+    <!-- SVG Flow Diagram -->
+    <div class="flow-diagram">
+      <div class="flow-node">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+          <line x1="8" y1="21" x2="16" y2="21"/>
+          <line x1="12" y1="17" x2="12" y2="21"/>
+        </svg>
+        <span class="label">Hardware<br><small>Jetson AGX Orin</small></span>
+      </div>
+      <span class="flow-arrow">→</span>
+      <div class="flow-node">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="16 18 22 12 16 6"/>
+          <polyline points="8 6 2 12 8 18"/>
+        </svg>
+        <span class="label">Kernel Driver<br><small>C · Linux Module</small></span>
+      </div>
+      <span class="flow-arrow">→</span>
+      <div class="flow-node">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="8" rx="2" ry="2"/>
+          <rect x="2" y="14" width="20" height="8" rx="2" ry="2"/>
+        </svg>
+        <span class="label">gRPC Server<br><small>C++17 · CMake</small></span>
+      </div>
+      <span class="flow-arrow">→</span>
+      <div class="flow-node">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+          <line x1="8" y1="21" x2="16" y2="21"/>
+          <line x1="12" y1="17" x2="12" y2="21"/>
+        </svg>
+        <span class="label">Desktop GUI<br><small>PySide6 · Python</small></span>
+      </div>
     </div>
-    <span class="flow-arrow">→</span>
 
-    <!-- GUI -->
-    <div class="flow-node gui">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
-        <line x1="8" y1="21" x2="16" y2="21"/>
-        <line x1="12" y1="17" x2="12" y2="21"/>
-      </svg>
-      <span class="label">Desktop GUI<br><small>PySide6 · Python</small></span>
+    <!-- Project Cards -->
+    <div class="projects">
+
+      <a href="cortex-forge.html" class="project-card">
+        <div class="card-header">
+          <div class="color-dot" style="background:hsl(var(--cf))"></div>
+          <h2 style="color:hsl(var(--cf))">Cortex Forge</h2>
+        </div>
+        <p class="summary">Machine Learning Core — harnesses the Ampere GPU (CUDA + Tensor Cores), dual NVDLA v2.0 deep learning accelerators, and PVA v2.0 for model inference, task scheduling, and real-time accelerator monitoring.</p>
+        <div class="tags">
+          <span class="tag">NVDLA</span>
+          <span class="tag">PVA</span>
+          <span class="tag">CUDA</span>
+          <span class="tag">TensorRT</span>
+          <span class="tag">gRPC</span>
+        </div>
+      </a>
+
+      <a href="iris-flow.html" class="project-card">
+        <div class="card-header">
+          <div class="color-dot" style="background:hsl(var(--if))"></div>
+          <h2 style="color:hsl(var(--if))">Iris Flow</h2>
+        </div>
+        <p class="summary">Vision Pipelining Core — drives the 16-lane MIPI CSI-2 camera interface, Image Signal Processor (ISP) for raw Bayer sensors up to 24MP, and multi-stream camera handling with real-time ISP tuning.</p>
+        <div class="tags">
+          <span class="tag">MIPI CSI-2</span>
+          <span class="tag">ISP</span>
+          <span class="tag">GStreamer</span>
+          <span class="tag">V4L2</span>
+        </div>
+      </a>
+
+      <a href="reel-forge.html" class="project-card">
+        <div class="card-header">
+          <div class="color-dot" style="background:hsl(var(--rf))"></div>
+          <h2 style="color:hsl(var(--rf))">Reel Forge</h2>
+        </div>
+        <p class="summary">Video Processing Core — exploits hardware video encode (4×4K60, AV1) and decode (8×4K60) blocks plus the Video Image Compositor (VIC) for 16-surface blending, lens distortion correction, and scaling.</p>
+        <div class="tags">
+          <span class="tag">H.264</span>
+          <span class="tag">H.265</span>
+          <span class="tag">AV1</span>
+          <span class="tag">VIC</span>
+        </div>
+      </a>
+
+      <a href="nexus-bus.html" class="project-card">
+        <div class="card-header">
+          <div class="color-dot" style="background:hsl(var(--nb))"></div>
+          <h2 style="color:hsl(var(--nb))">Nexus Bus</h2>
+        </div>
+        <p class="summary">Peripheral Access Core — unifies GPIO (40-pin header), 8 I2C controllers, 3 SPI controllers, 4 UART ports, and 2 CAN bus interfaces through a single character device and gRPC interface.</p>
+        <div class="tags">
+          <span class="tag">GPIO</span>
+          <span class="tag">I2C</span>
+          <span class="tag">SPI</span>
+          <span class="tag">UART</span>
+          <span class="tag">CAN</span>
+        </div>
+      </a>
+
+      <a href="volt-guard.html" class="project-card">
+        <div class="card-header">
+          <div class="color-dot" style="background:hsl(var(--vg))"></div>
+          <h2 style="color:hsl(var(--vg))">Volt Guard</h2>
+        </div>
+        <p class="summary">Power Management Core — controls the configurable 15W–60W power envelope, dynamic power mode switching, PMIC-level voltage rail sequencing, and real-time telemetry for voltage, current, and temperature.</p>
+        <div class="tags">
+          <span class="tag">PMIC</span>
+          <span class="tag">Power Modes</span>
+          <span class="tag">Telemetry</span>
+        </div>
+      </a>
+
     </div>
-  </div>
 
-  <!-- Project Cards -->
-  <div class="projects">
-
-    <a href="cortex-forge.html" class="project-card">
-      <div class="color-bar" style="background:var(--cf)"></div>
-      <h2 style="color:var(--cf)">Cortex Forge</h2>
-      <p class="summary">Machine Learning Core — harnesses the Ampere GPU (CUDA + Tensor Cores), dual NVDLA v2.0 deep learning accelerators, and PVA v2.0 for model inference, task scheduling, and real-time accelerator monitoring.</p>
-      <div class="tags">
-        <span class="tag" style="background:#E3F2FD;color:#1565C0">NVDLA</span>
-        <span class="tag" style="background:#E3F2FD;color:#1565C0">PVA</span>
-        <span class="tag" style="background:#E3F2FD;color:#1565C0">CUDA</span>
-        <span class="tag" style="background:#E3F2FD;color:#1565C0">TensorRT</span>
-        <span class="tag" style="background:#E3F2FD;color:#1565C0">gRPC</span>
-      </div>
-    </a>
-
-    <a href="iris-flow.html" class="project-card">
-      <div class="color-bar" style="background:var(--if)"></div>
-      <h2 style="color:var(--if)">Iris Flow</h2>
-      <p class="summary">Vision Pipelining Core — drives the 16-lane MIPI CSI-2 camera interface, Image Signal Processor (ISP) for raw Bayer sensors up to 24MP, and multi-stream camera handling with real-time ISP tuning and GStreamer pipeline integration.</p>
-      <div class="tags">
-        <span class="tag" style="background:#E8F5E9;color:#2E7D32">MIPI CSI-2</span>
-        <span class="tag" style="background:#E8F5E9;color:#2E7D32">ISP</span>
-        <span class="tag" style="background:#E8F5E9;color:#2E7D32">GStreamer</span>
-        <span class="tag" style="background:#E8F5E9;color:#2E7D32">V4L2</span>
-      </div>
-    </a>
-
-    <a href="reel-forge.html" class="project-card">
-      <div class="color-bar" style="background:var(--rf)"></div>
-      <h2 style="color:var(--rf)">Reel Forge</h2>
-      <p class="summary">Video Processing Core — exploits hardware video encode (4×4K60, AV1) and decode (8×4K60) blocks plus the Video Image Compositor (VIC) for 16-surface blending, lens distortion correction, scaling, and deinterlacing.</p>
-      <div class="tags">
-        <span class="tag" style="background:#FFF3E0;color:#E65100">H.264</span>
-        <span class="tag" style="background:#FFF3E0;color:#E65100">H.265</span>
-        <span class="tag" style="background:#FFF3E0;color:#E65100">AV1</span>
-        <span class="tag" style="background:#FFF3E0;color:#E65100">VIC</span>
-        <span class="tag" style="background:#FFF3E0;color:#E65100">RTSP</span>
-      </div>
-    </a>
-
-    <a href="nexus-bus.html" class="project-card">
-      <div class="color-bar" style="background:var(--nb)"></div>
-      <h2 style="color:var(--nb)">Nexus Bus</h2>
-      <p class="summary">Peripheral Access Core — unifies GPIO (40-pin header), 8 I2C controllers, 3 SPI controllers, 4 UART ports, and 2 CAN bus interfaces through a single character device and gRPC interface with bus-level fault handling.</p>
-      <div class="tags">
-        <span class="tag" style="background:#F3E5F5;color:#6A1B9A">GPIO</span>
-        <span class="tag" style="background:#F3E5F5;color:#6A1B9A">I2C</span>
-        <span class="tag" style="background:#F3E5F5;color:#6A1B9A">SPI</span>
-        <span class="tag" style="background:#F3E5F5;color:#6A1B9A">UART</span>
-        <span class="tag" style="background:#F3E5F5;color:#6A1B9A">CAN</span>
-      </div>
-    </a>
-
-    <a href="volt-guard.html" class="project-card">
-      <div class="color-bar" style="background:var(--vg)"></div>
-      <h2 style="color:var(--vg)">Volt Guard</h2>
-      <p class="summary">Power Management Core — controls the configurable 15W–60W power envelope, dynamic power mode switching, PMIC-level voltage rail sequencing, and real-time telemetry for voltage, current, temperature, and power draw.</p>
-      <div class="tags">
-        <span class="tag" style="background:#FFEBEE;color:#C62828">PMIC</span>
-        <span class="tag" style="background:#FFEBEE;color:#C62828">Power Modes</span>
-        <span class="tag" style="background:#FFEBEE;color:#C62828">Telemetry</span>
-        <span class="tag" style="background:#FFEBEE;color:#C62828">15-60W</span>
-      </div>
-    </a>
+    <div class="footer">
+      <p>Built on <a href="https://www.nvidia.com/en-us/autonomous-machines/embedded-systems/jetson-orin/">NVIDIA Jetson AGX Orin</a> · Open source · MIT &amp; GPL-2.0 licensed</p>
+      <p style="margin-top:6px;font-size:12px;color:hsl(var(--muted-foreground));">15 repositories · 3 tiers per project · Driver → Server → GUI</p>
+    </div>
 
   </div>
-
-  <div class="footer">
-    <p>Built on NVIDIA Jetson AGX Orin · Open source · MIT &amp; GPL-2.0 licensed</p>
-    <p style="margin-top:8px;font-size:12px;color:var(--text-muted)">15 repositories · 3 tiers per project · Driver → Server → GUI</p>
-  </div>
-
-</div>
 </body>
 </html>
