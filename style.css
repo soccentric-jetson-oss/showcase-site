@@ -231,6 +231,7 @@ body {
 /* ── Project Cards ─────────────────────────────────────────────────────── */
 .projects {
   display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 16px;
   padding-bottom: 48px;
 }
@@ -496,6 +497,10 @@ body {
 .footer a:hover { color: var(--accent); }
 
 /* ── Responsive ───────────────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .projects { grid-template-columns: repeat(2, 1fr); }
+}
+
 @media (max-width: 768px) {
   .hero h1 { font-size: 28px; }
   .flow-track { flex-direction: column; gap: 2px; }
@@ -504,4 +509,5 @@ body {
   .nav-links { padding-bottom: 4px; }
   .stats { gap: 24px; }
   .stat-num { font-size: 22px; }
+  .projects { grid-template-columns: 1fr; }
 }
