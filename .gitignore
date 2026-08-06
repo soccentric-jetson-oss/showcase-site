@@ -1,5 +1,4 @@
-build/
-*.o *.ko *.so *.a
-.*.swp .DS_Store
-__pycache__/
-*.pyc
+# SPDX-License-Identifier: MIT
+*.swp *.swo *~ .vscode/ .idea/
+docs/html/
+.DS_Store Thumbs.db *.bak
