@@ -40,7 +40,7 @@
       <div class="project-header">
         <div class="color-bar" style="background:hsl(var(--cf))"></div>
         <h1>Cortex Forge</h1>
-        <p class="subtitle">Machine Learning Core — harnesses the full ML acceleration stack of the NVIDIA Jetson AGX Orin, including the Ampere GPU with 2048 CUDA cores and 64 Tensor Cores, dual NVDLA v2.0 deep learning accelerators, and the PVA v2.0 programmable vision accelerator. Exposes model loading, inference execution, and real-time accelerator monitoring through a clean three-tier architecture.</p>
+        <p class="subtitle">Machine Learning Core — our internal framework for harnessing the full ML acceleration stack on Jetson: Ampere GPU (2048 CUDA + 64 Tensor Cores), dual NVDLA v2.0, and PVA v2.0. We use this as our starting point for every project that needs model inference, task scheduling, or real-time accelerator monitoring.</p>
       </div>
 
       <!-- SVG Flow Diagram -->
@@ -69,7 +69,7 @@
       <!-- Overview -->
       <div class="section">
         <h2>Overview</h2>
-        <p>Cortex Forge is an open-source showcase project that demonstrates full exploitation of the NVIDIA Jetson AGX Orin's machine learning and AI acceleration capabilities. The project targets the AGX Orin as its foundational hardware and is composed of three independent sub-projects, each living in its own GitHub repository. The architecture follows a clean three-tier pattern: a Linux kernel driver provides direct hardware access to the NVDLA and PVA accelerators, a C++17 gRPC server exposes model management and inference over the network, and a cross-platform PySide6 desktop GUI delivers real-time monitoring and control.</p>
+        <p>Cortex Forge is one of the five building blocks we've extracted from our internal Jetson projects — battle-tested across TX1, TX2, Xavier, Orin, and Thor since 2015. It's the ML acceleration framework we reach for first when starting a new project. The architecture follows our standard three-tier pattern: a Linux kernel driver for direct NVDLA/PVA access, a C++17 gRPC server for model management and inference over the network, and a PySide6 desktop GUI for real-time monitoring and control.</p>
         <ul>
           <li><strong>GPU-Accelerated Inference</strong> — Leverages CUDA and TensorRT for real-time model deployment on the Ampere GPU, with support for quantization, batching, and latency tuning at the edge.</li>
           <li><strong>Multi-Accelerator Support</strong> — Schedules inference tasks across GPU, NVDLA 0, NVDLA 1, and PVA simultaneously, demonstrating concurrent AI workloads on a single device.</li>

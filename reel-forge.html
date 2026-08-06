@@ -40,7 +40,7 @@
       <div class="project-header">
         <div class="color-bar" style="background:hsl(var(--rf))"></div>
         <h1>Reel Forge</h1>
-        <p class="subtitle">Video Processing Core — harnesses the full video encode/decode and hardware acceleration capabilities of the NVIDIA Jetson AGX Orin, including hardware video encode (4×4K60, AV1) and decode (8×4K60) blocks plus the Video Image Compositor (VIC) for 16-surface blending, lens distortion correction, and scaling. Exposes transcoding, compositing, and streaming through a clean three-tier architecture.</p>
+        <p class="subtitle">Video Processing Core — our internal framework for hardware-accelerated video on Jetson. Wraps the encode/decode blocks (4×4K60 encode, 8×4K60 decode, AV1) and VIC compositor for 16-surface blending, lens correction, and scaling. Every video project we've shipped since TX1 started here.</p>
       </div>
 
       <!-- SVG Flow Diagram -->
@@ -69,7 +69,7 @@
       <!-- Overview -->
       <div class="section">
         <h2>Overview</h2>
-        <p>Reel Forge is an open-source showcase project that demonstrates full exploitation of the NVIDIA Jetson AGX Orin's video encode/decode and compositing capabilities. The project targets the AGX Orin as its foundational hardware and is composed of three independent sub-projects, each living in its own GitHub repository. The architecture follows a clean three-tier pattern: a Linux kernel driver provides direct hardware access to the VIC and video codec blocks, a C++17 gRPC server exposes transcoding and compositing over the network, and a cross-platform PySide6 desktop GUI delivers real-time video processing control.</p>
+        <p>Reel Forge is one of the five building blocks we've extracted from our internal Jetson projects — proven across TX1, TX2, Xavier, Orin, and Thor since 2015. It's the video processing framework we start with whenever a project needs transcoding, compositing, or streaming. The architecture follows our standard three-tier pattern: a Linux kernel driver for direct VIC and codec access, a C++17 gRPC server for transcoding and compositing over the network, and a PySide6 desktop GUI for real-time video control.</p>
         <ul>
           <li><strong>Hardware-Accelerated Transcoding</strong> — Leverages the dedicated H.264, H.265, and AV1 encode/decode blocks for high-throughput video transcoding with minimal CPU overhead.</li>
           <li><strong>Multi-Surface Compositing</strong> — Uses the VIC hardware for blending up to 16 video surfaces with alpha blending, chroma keying, and geometric transforms.</li>

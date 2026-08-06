@@ -40,7 +40,7 @@
       <div class="project-header">
         <div class="color-bar" style="background:hsl(var(--nb))"></div>
         <h1>Nexus Bus</h1>
-        <p class="subtitle">Peripheral Access Core — unifies the full peripheral and bus I/O capabilities of the NVIDIA Jetson AGX Orin, including GPIO (40-pin header), 8 I2C controllers, 3 SPI controllers, 4 UART ports, and 2 CAN bus interfaces. Exposes all peripheral communication through a single character device and gRPC interface with a clean three-tier architecture.</p>
+        <p class="subtitle">Peripheral Access Core — our unified framework for all bus I/O on Jetson. Wraps GPIO (40-pin), 8 I2C controllers, 3 SPI, 4 UART, and 2 CAN interfaces into a single character device and gRPC API. We built this because every project needs peripherals, and we got tired of rewriting the same boilerplate.</p>
       </div>
 
       <!-- SVG Flow Diagram -->
@@ -69,7 +69,7 @@
       <!-- Overview -->
       <div class="section">
         <h2>Overview</h2>
-        <p>Nexus Bus is an open-source showcase project that demonstrates full exploitation of the NVIDIA Jetson AGX Orin's peripheral and bus I/O capabilities. The project targets the AGX Orin as its foundational hardware and is composed of three independent sub-projects, each living in its own GitHub repository. The architecture follows a clean three-tier pattern: a Linux kernel driver provides direct hardware access to GPIO, I2C, SPI, UART, and CAN controllers, a C++17 gRPC server exposes unified peripheral access over the network, and a cross-platform PySide6 desktop GUI delivers real-time bus monitoring and control.</p>
+        <p>Nexus Bus is one of the five building blocks we've extracted from our internal Jetson projects — battle-tested across TX1, TX2, Xavier, Orin, and Thor since 2015. It's the peripheral access layer we drop into every project that needs to talk to the outside world. The architecture follows our standard three-tier pattern: a Linux kernel driver for direct GPIO/I2C/SPI/UART/CAN access, a C++17 gRPC server for unified peripheral access over the network, and a PySide6 desktop GUI for real-time bus monitoring and control.</p>
         <ul>
           <li><strong>Unified Peripheral Interface</strong> — Single character device interface for all bus protocols with consistent read/write semantics and error handling.</li>
           <li><strong>Multi-Protocol Support</strong> — Native support for GPIO, I2C, SPI, UART, and CAN with protocol-specific optimizations and hardware timing control.</li>

@@ -40,7 +40,7 @@
       <div class="project-header">
         <div class="color-bar" style="background:hsl(var(--vg))"></div>
         <h1>Volt Guard</h1>
-        <p class="subtitle">Power Management Core — controls the full power management capabilities of the NVIDIA Jetson AGX Orin, including the configurable 15W–60W power envelope, dynamic power mode switching, PMIC-level voltage rail sequencing, and real-time telemetry for voltage, current, and temperature. Exposes power configuration, monitoring, and control through a clean three-tier architecture.</p>
+        <p class="subtitle">Power Management Core — our internal framework for controlling the Jetson power envelope. Manages the 15W–60W range, dynamic mode switching, PMIC voltage rail sequencing, and real-time telemetry for voltage, current, and temperature. Essential for every deployment where power budgets actually matter.</p>
       </div>
 
       <!-- SVG Flow Diagram -->
@@ -69,7 +69,7 @@
       <!-- Overview -->
       <div class="section">
         <h2>Overview</h2>
-        <p>Volt Guard is an open-source showcase project that demonstrates full exploitation of the NVIDIA Jetson AGX Orin's power management capabilities. The project targets the AGX Orin as its foundational hardware and is composed of three independent sub-projects, each living in its own GitHub repository. The architecture follows a clean three-tier pattern: a Linux kernel driver provides direct access to the PMIC and voltage rail hardware, a C++17 gRPC server exposes power configuration and telemetry over the network, and a cross-platform PySide6 desktop GUI delivers real-time power monitoring and control.</p>
+        <p>Volt Guard is one of the five building blocks we've extracted from our internal Jetson projects — refined across TX1, TX2, Xavier, Orin, and Thor since 2015. It's the power management framework we use in every deployment where thermal and power constraints are critical. The architecture follows our standard three-tier pattern: a Linux kernel driver for direct PMIC and voltage rail access, a C++17 gRPC server for power configuration and telemetry, and a PySide6 desktop GUI for real-time power monitoring and control.</p>
         <ul>
           <li><strong>Dynamic Power Mode Switching</strong> — Programmatic control over the 15W–60W power envelope with seamless mode transitions and automatic thermal management.</li>
           <li><strong>PMIC-Level Voltage Control</strong> — Direct access to PMIC registers for voltage rail sequencing, ramp rate control, and power-good monitoring.</li>

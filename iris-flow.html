@@ -40,7 +40,7 @@
       <div class="project-header">
         <div class="color-bar" style="background:hsl(var(--if))"></div>
         <h1>Iris Flow</h1>
-        <p class="subtitle">Vision Pipelining Core — drives the 16-lane MIPI CSI-2 camera interface of the NVIDIA Jetson AGX Orin, including the full 16-lane MIPI CSI-2 camera input, the dedicated Image Signal Processor (ISP) supporting raw Bayer sensors up to 24 megapixels, and multi-stream camera handling for up to 6 simultaneous camera streams. Exposes frame capture, ISP tuning, and stream control through a clean three-tier architecture.</p>
+        <p class="subtitle">Vision Pipelining Core — our go-to framework for camera and vision pipelines on Jetson. Drives the 16-lane MIPI CSI-2 interface, ISP for raw Bayer sensors up to 24MP, and multi-stream handling for up to 6 cameras. We've used this across dozens of projects — from thermal imaging to autonomous navigation.</p>
       </div>
 
       <!-- SVG Flow Diagram -->
@@ -69,7 +69,7 @@
       <!-- Overview -->
       <div class="section">
         <h2>Overview</h2>
-        <p>Iris Flow is an open-source showcase project that demonstrates full exploitation of the NVIDIA Jetson AGX Orin's camera and vision processing capabilities. The project targets the AGX Orin as its foundational hardware and is composed of three independent sub-projects. The architecture follows a clean three-tier pattern: a Linux kernel driver provides direct access to the MIPI CSI-2 and ISP hardware, a C++17 gRPC server exposes frame processing and pipeline configuration over the network, and a cross-platform PySide6 desktop GUI delivers live camera preview and ISP tuning controls.</p>
+        <p>Iris Flow is one of the five building blocks we've extracted from our internal Jetson projects — refined over years of real-world use across TX1, TX2, Xavier, Orin, and Thor. It's the vision pipeline we bootstrap every camera project with. The architecture follows our standard three-tier pattern: a Linux kernel driver for direct MIPI CSI-2 and ISP access, a C++17 gRPC server for frame processing and pipeline configuration, and a PySide6 desktop GUI for live preview and ISP tuning.</p>
         <ul>
           <li><strong>Multi-Stream Camera</strong> — Supports up to 6 simultaneous camera streams over the 16-lane MIPI CSI-2 interface, with independent resolution and format configuration per stream.</li>
           <li><strong>Real-Time ISP Tuning</strong> — Exposes brightness, contrast, saturation, and sharpness controls through gRPC, with immediate application to the hardware ISP pipeline.</li>
