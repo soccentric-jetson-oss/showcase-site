@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nexus Bus — Peripheral Core | Jetson AGX Orin Showcase</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  .project-header h1 { color: var(--nb); }
+  .sub-card .tech { background: #F3E5F5; color: #6A1B9A; }
+  .sub-card .repo-link { background: var(--nb); color: white; }
+  .sub-card h3 { color: var(--nb); }
+  .flow-node.hardware svg, .flow-node.hardware .label { color: #E65100; }
+  .flow-node.driver svg, .flow-node.driver .label { color: #6A1B9A; }
+  .flow-node.server svg, .flow-node.server .label { color: #2E7D32; }
+  .flow-node.gui svg, .flow-node.gui .label { color: #7B1FA2; }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Jetson AGX Orin <span>Showcase</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="nexus-bus.html" class="active">Nexus Bus</a></li>
+      <li><a href="iris-flow.html">Iris Flow</a></li>
+      <li><a href="reel-forge.html">Reel Forge</a></li>
+      <li><a href="nexus-bus.html">Nexus Bus</a></li>
+      <li><a href="volt-guard.html">Volt Guard</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="project-page">
+
+    <!-- Header -->
+    <div class="project-header">
+      <div class="color-bar" style="background:var(--nb)"></div>
+      <h1>Nexus Bus</h1>
+      <p class="subtitle">Peripheral Access Core — harnesses the full of the NVIDIA Jetson AGX Orin, including the Ampere GPU with 2048 CUDA cores and 64 Tensor Cores, dual NVDLA v2.0 deep learning accelerators, and the PVA v2.0 programmable vision accelerator. Exposes model loading, inference execution, and real-time accelerator monitoring through a clean three-tier architecture.</p>
+    </div>
+
+    <!-- SVG Flow Diagram -->
+    <div class="flow-diagram" style="padding:20px 0 40px">
+      <div class="flow-node hardware" style="background:#FFF3E0">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        <span class="label">GPIO + I2C + SPI + UART + CAN<br><small>Bus Hardware</span>
+      </div>
+      <span class="flow-arrow">→</span>
+      <div class="flow-node driver" style="background:#F3E5F5">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/><line x1="10" y1="3" x2="14" y2="21"/></svg>
+        <span class="label">nexus-bus-driver<br><small>Linux Kernel Module</small></span>
+      </div>
+      <span class="flow-arrow">→</span>
+      <div class="flow-node server" style="background:#E8F5E9">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+        <span class="label">nexus-bus-server<br><small>C++17 gRPC Server</small></span>
+      </div>
+      <span class="flow-arrow">→</span>
+      <div class="flow-node gui" style="background:#F3E5F5">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        <span class="label">nexus-bus-gui<br><small>PySide6 Desktop</small></span>
+      </div>
+    </div>
+
+    <!-- Summary -->
+    <div class="section">
+      <h2>Overview</h2>
+      <p>Nexus Bus is an open-source showcase project that demonstrates full exploitation of the NVIDIA Jetson AGX Orin's peripheral and bus I/O capabilities. machine learning and AI acceleration capabilities. The project targets the AGX Orin as its foundational hardware and is composed of three independent sub-projects, each living in its own GitHub repository. The architecture follows a clean three-tier pattern: a Linux kernel driver provides direct hardware access to the NVDLA and PVA accelerators, a C++17 gRPC server exposes model management and inference over the network, and a cross-platform PySide6 desktop GUI delivers real-time monitoring and control.</p>
+      <br>
+      <ul>
+        <li><strong>GPU-Accelerated Inference</strong> — Leverages CUDA and TensorRT for real-time model deployment on the Ampere GPU, with support for quantization, batching, and latency tuning at the edge.</li>
+        <li><strong>Multi-Accelerator Support</strong> — Schedules inference tasks across GPU, NVDLA 0, NVDLA 1, and PVA simultaneously, demonstrating concurrent AI workloads on a single device.</li>
+        <li><strong>Real-Time Monitoring</strong> — Exposes per-accelerator utilization, temperature, memory usage, and inference latency metrics through gRPC streaming endpoints.</li>
+        <li><strong>Fault Detection & Recovery</strong> — Implements task timeout, cancellation, and error reporting for inference workloads, with automatic recovery from accelerator hangs.</li>
+        <li><strong>Secure Model Updates</strong> — Supports loading and unloading models at runtime without server restart, enabling field-update patterns for OTA-style model deployment.</li>
+        <li><strong>Sensor Fusion Ready</strong> — Server-side design anticipates combining model output with other sensor streams (camera, audio) for multi-modal inference pipelines.</li>
+      </ul>
+    </div>
+
+    <!-- Sub-projects -->
+    <div class="section">
+      <h2>Architecture</h2>
+      <div class="sub-grid">
+
+        <div class="sub-card">
+          <h3>Kernel Driver</h3>
+          <span class="tech">C · Linux Kernel Module</span>
+          <p>The nexus-bus-driver is a Linux kernel module that provides direct userspace access to the NVDLA v2.0 and PVA v2.0 hardware accelerators through a character device interface. It implements a complete task management system with allocation, submission, query, and cancellation of inference tasks across all three accelerator types.</p>
+          <ul>
+            <li>Char device interface with unified ioctl protocol for task submission, query, and cancellation</li>
+            <li>Kernel worker threads per accelerator with configurable timeouts and priority scheduling</li>
+            <li>Platform abstraction layer for SoC-specific register maps and clock/reset management</li>
+            <li>Userspace C library (libnexus-bus) wrapping the ioctl interface for application developers</li>
+            <li>Comprehensive test suite with multi-threaded stress testing and edge case coverage</li>
+            <li>sysfs attributes for accelerator status and debugfs interface for diagnostics</li>
+          </ul>
+          <a class="repo-link" href="https://github.com/soccentric-jetson-oss/nexus-bus-driver">View Repository →</a>
+        </div>
+
+        <div class="sub-card">
+          <h3>gRPC Server</h3>
+          <span class="tech">C++17 · CMake · gRPC · Protobuf</span>
+          <p>The nexus-bus-server is a C++17 gRPC daemon that exposes model management and inference capabilities over the network. It provides a clean service-oriented API for loading/unloading models, running synchronous and streaming inference, and monitoring accelerator metrics in real time.</p>
+          <ul>
+            <li>9 RPCs across model management, inference, monitoring, and health check categories</li>
+            <li>Abstract InferenceEngine interface with stub implementation for development and TensorRT backend for production</li>
+            <li>AcceleratorManager with auto-selection logic for optimal accelerator targeting</li>
+            <li>MetricsCollector tracking P99 latency, throughput, and per-accelerator utilization</li>
+            <li>Server-streaming endpoints for real-time metrics and inference result streaming</li>
+            <li>Catch2 unit tests with 20+ test cases covering all service operations</li>
+          </ul>
+          <a class="repo-link" href="https://github.com/soccentric-jetson-oss/nexus-bus-server">View Repository →</a>
+        </div>
+
+        <div class="sub-card">
+          <h3>Desktop GUI</h3>
+          <span class="tech">Python · PySide6 · gRPC</span>
+          <p>The nexus-bus-gui is a cross-platform PySide6 desktop application that provides real-time monitoring and control of the ML inference pipeline. It features a macOS-inspired design with a complete menu bar, sidebar navigation, and big elegant button boxes for common actions.</p>
+          <ul>
+            <li>macOS-style menu bar with File, Edit, View, Tools, and Help menus with keyboard shortcuts</li>
+            <li>Sidebar navigation with Dashboard, Controls, and Settings pages</li>
+            <li>Real-time accelerator metrics display with GPU, DLA0, DLA1, and PVA utilization gauges</li>
+            <li>Model management interface for loading, unloading, and configuring inference models</li>
+            <li>BigButtonBox widgets for primary actions with large rounded buttons and hover states</li>
+            <li>Light theme with white backgrounds, blue accent (#1976D2), and dark text (#212121)</li>
+          </ul>
+          <a class="repo-link" href="https://github.com/soccentric-jetson-oss/nexus-bus-gui">View Repository →</a>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <p><a href="index.html" style="color:var(--primary);text-decoration:none;">← Back to Showcase</a></p>
+  </div>
+</div>
+
+</body>
+</html>

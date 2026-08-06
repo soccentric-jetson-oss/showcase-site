@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Iris Flow — Vision Core | Jetson AGX Orin Showcase</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  .project-header h1 { color: var(--if); }
+  .sub-card .tech { background: #E8F5E9; color: #2E7D32; }
+  .sub-card .repo-link { background: var(--if); color: white; }
+  .sub-card h3 { color: var(--if); }
+  .flow-node.hardware svg, .flow-node.hardware .label { color: #E65100; }
+  .flow-node.driver svg, .flow-node.driver .label { color: #2E7D32; }
+  .flow-node.server svg, .flow-node.server .label { color: #2E7D32; }
+  .flow-node.gui svg, .flow-node.gui .label { color: #7B1FA2; }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Jetson AGX Orin <span>Showcase</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="iris-flow.html" class="active">Iris Flow</a></li>
+      <li><a href="iris-flow.html">Iris Flow</a></li>
+      <li><a href="reel-forge.html">Reel Forge</a></li>
+      <li><a href="nexus-bus.html">Nexus Bus</a></li>
+      <li><a href="volt-guard.html">Volt Guard</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="project-page">
+
+    <!-- Header -->
+    <div class="project-header">
+      <div class="color-bar" style="background:var(--if)"></div>
+      <h1>Iris Flow</h1>
+      <p class="subtitle">Vision Pipelining Core — drives the 16-lane MIPI CSI-2 camera interface of the NVIDIA Jetson AGX Orin, including the full 16-lane MIPI CSI-2 camera input, the dedicated Image Signal Processor (ISP) supporting raw Bayer sensors up to 24 megapixels, and multi-stream camera handling for up to 6 simultaneous camera streams. Exposes frame capture, ISP tuning, and stream control through a clean three-tier architecture.</p>
+    </div>
+
+    <!-- SVG Flow Diagram -->
+    <div class="flow-diagram" style="padding:20px 0 40px">
+      <div class="flow-node hardware" style="background:#FFF3E0">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        <span class="label">MIPI CSI-2 + ISP<br><small>Camera Hardware</small></span>
+      </div>
+      <span class="flow-arrow">→</span>
+      <div class="flow-node driver" style="background:#E8F5E9">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/><line x1="10" y1="3" x2="14" y2="21"/></svg>
+        <span class="label">iris-flow-driver<br><small>Linux Kernel Module</small></span>
+      </div>
+      <span class="flow-arrow">→</span>
+      <div class="flow-node server" style="background:#E8F5E9">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+        <span class="label">iris-flow-server<br><small>C++17 gRPC Server</small></span>
+      </div>
+      <span class="flow-arrow">→</span>
+      <div class="flow-node gui" style="background:#F3E5F5">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        <span class="label">iris-flow-gui<br><small>PySide6 Desktop</small></span>
+      </div>
+    </div>
+
+    <!-- Summary -->
+    <div class="section">
+      <h2>Overview</h2>
+      <p>Iris Flow is an open-source showcase project that demonstrates full exploitation of the NVIDIA Jetson AGX Orin's machine learning and AI acceleration capabilities. The project targets the AGX Orin as its foundational hardware and is composed of three independent sub-projects. The architecture follows a clean three-tier pattern: a Linux kernel driver provides direct access to the MIPI CSI-2 and ISP hardware, a C++17 gRPC server exposes frame processing and pipeline configuration over the network, and a cross-platform PySide6 desktop GUI delivers live camera preview and ISP tuning controls.</p>
+      <br>
+      <ul>
+        <li><strong>Multi-Stream Camera</strong> — Supports up to 6 simultaneous camera streams over the 16-lane MIPI CSI-2 interface, with independent resolution and format configuration per stream.</li>
+        <li><strong>Real-Time ISP Tuning</strong> — Exposes brightness, contrast, saturation, and sharpness controls through gRPC, with immediate application to the hardware ISP pipeline.</li>
+        <li><strong>GStreamer Integration</strong> — Server-side pipeline construction using GStreamer for capture, encoding, processing, storage, and streaming with RTSP and WebRTC output support.</li>
+        <li><strong>Low-Latency Design</strong> — Architecture optimized for real-time video delivery with sub-frame latency, including frame dropping detection and automatic stream recovery.</li>
+        <li><strong>Thermal Camera Support</strong> — Architecture considers non-visible-spectrum camera integration (thermal, IR) for specialized imaging use cases beyond standard sensors.</li>
+        <li><strong>Camera Tuning Pipeline</strong> — Calibration, color processing, exposure control, and image-quality tuning treated as first-class concerns in the pipeline design.</li>
+      </ul>
+    </div>
+
+    <!-- Sub-projects -->
+    <div class="section">
+      <h2>Architecture</h2>
+      <div class="sub-grid">
+
+        <div class="sub-card">
+          <h3>Kernel Driver</h3>
+          <span class="tech">C · Linux Kernel Module</span>
+          <p>The iris-flow-driver is a Linux kernel module that provides direct userspace access to the NVDLA v2.0 and PVA v2.0 hardware accelerators through a character device interface. It implements a complete task management system with allocation, submission, query, and cancellation of inference tasks across all three accelerator types.</p>
+          <ul>
+            <li>Char device interface for camera sensor configuration, frame capture, and ISP parameter control</li>
+            <li>V4L2-compatible interface for standard camera integration with media controller support</li>
+            <li>Multi-stream support for up to 6 simultaneous camera inputs with independent configuration</li>
+            <li>Userspace C library (libiris-flow) wrapping the ioctl interface for application developers</li>
+            <li>Device tree overlay for IMX708 sensor module with compatible string and pinmux configuration</li>
+            <li>sysfs attributes for sensor status and debugfs interface for ISP register diagnostics</li>
+          </ul>
+          <a class="repo-link" href="https://github.com/soccentric-jetson-oss/iris-flow-driver">View Repository →</a>
+        </div>
+
+        <div class="sub-card">
+          <h3>gRPC Server</h3>
+          <span class="tech">C++17 · CMake · gRPC · Protobuf</span>
+          <p>The iris-flow-server is a C++17 gRPC daemon that exposes model management and inference capabilities over the network. It provides a clean service-oriented API for loading/unloading models, running synchronous and streaming inference, and monitoring accelerator metrics in real time.</p>
+          <ul>
+            <li>8 RPCs across stream control, frame capture, ISP tuning, and health check categories</li>
+            <li>GStreamer-based pipeline construction for capture, encode, process, store, and stream operations</li>
+            <li>Server-streaming endpoint for real-time frame delivery at configurable frame rates</li>
+            <li>Per-stage latency instrumentation for capture, ISP processing, and frame delivery timing</li>
+            <li>FFmpeg integration for hardware-accelerated encoding and streaming output</li>
+            <li>Catch2 unit tests with edge case coverage for stream configuration and ISP parameter validation</li>
+          </ul>
+          <a class="repo-link" href="https://github.com/soccentric-jetson-oss/iris-flow-server">View Repository →</a>
+        </div>
+
+        <div class="sub-card">
+          <h3>Desktop GUI</h3>
+          <span class="tech">Python · PySide6 · gRPC</span>
+          <p>The iris-flow-gui is a cross-platform PySide6 desktop application that provides real-time monitoring and control of the ML inference pipeline. It features a macOS-inspired design with a complete menu bar, sidebar navigation, and big elegant button boxes for common actions.</p>
+          <ul>
+            <li>macOS-style menu bar with File, Edit, View, Tools, and Help menus with keyboard shortcuts</li>
+            <li>Sidebar navigation with Dashboard, Controls, and Settings pages</li>
+            <li>Live camera preview with real-time frame rate and resolution display</li>
+            <li>ISP tuning panel with brightness, contrast, saturation, and sharpness sliders for real-time adjustment</li>
+            <li>BigButtonBox widgets for primary actions with large rounded buttons and hover states</li>
+            <li>Light theme with white backgrounds, blue accent (#1976D2), and dark text (#212121)</li>
+          </ul>
+          <a class="repo-link" href="https://github.com/soccentric-jetson-oss/iris-flow-gui">View Repository →</a>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <p><a href="index.html" style="color:var(--primary);text-decoration:none;">← Back to Showcase</a></p>
+  </div>
+</div>
+
+</body>
+</html>

@@ -4,173 +4,154 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Jetson AGX Orin — Capability Showcase</title>
-<style>
-:root {
-  --bg: #0a0a1a; --surface: #12122a; --border: #2a2a4a;
-  --text: #e0e0e0; --muted: #8888aa;
-  --cf: #64b5f6; --if: #76ff03; --rf: #ff6d00; --nb: #ce93d8; --vg: #ff5252;
-}
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: -apple-system, 'SF Pro Display', 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
-.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-
-/* Hero */
-.hero { text-align: center; padding: 100px 0 60px; }
-.hero h1 { font-size: 48px; font-weight: 800; background: linear-gradient(135deg, #64b5f6, #76ff03, #ff6d00, #ce93d8, #ff5252); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 16px; }
-.hero p { color: var(--muted); font-size: 18px; max-width: 600px; margin: 0 auto; }
-
-/* Projects */
-.projects { display: grid; gap: 24px; padding: 40px 0; }
-.project { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 32px; transition: transform .3s, box-shadow .3s; cursor: default; }
-.project:hover { transform: translateY(-4px); box-shadow: 0 8px 32px rgba(0,0,0,.3); }
-.project h2 { font-size: 24px; margin-bottom: 8px; }
-.project .desc { color: var(--muted); margin-bottom: 20px; }
-.project .arch { display: flex; gap: 12px; align-items: center; justify-content: center; padding: 20px; background: rgba(255,255,255,.03); border-radius: 12px; margin-bottom: 20px; font-size: 13px; }
-.project .arch .box { padding: 8px 16px; border-radius: 8px; font-weight: 600; font-size: 12px; }
-.project .arch .arrow { color: var(--muted); font-size: 20px; }
-.repos { display: flex; gap: 12px; flex-wrap: wrap; }
-.repo { display: inline-block; padding: 8px 16px; border-radius: 8px; text-decoration: none; font-size: 13px; font-weight: 600; transition: opacity .2s; }
-.repo:hover { opacity: .8; }
-
-/* Project colors */
-.cf .arch .box { background: #64b5f620; color: #64b5f6; }
-.cf .repo { background: #64b5f6; color: #0a0a1a; }
-.cf h2 { color: #64b5f6; }
-.if .arch .box { background: #76ff0320; color: #76ff03; }
-.if .repo { background: #76ff03; color: #0a0a1a; }
-.if h2 { color: #76ff03; }
-.rf .arch .box { background: #ff6d0020; color: #ff6d00; }
-.rf .repo { background: #ff6d00; color: #0a0a1a; }
-.rf h2 { color: #ff6d00; }
-.nb .arch .box { background: #ce93d820; color: #ce93d8; }
-.nb .repo { background: #ce93d8; color: #0a0a1a; }
-.nb h2 { color: #ce93d8; }
-.vg .arch .box { background: #ff525220; color: #ff5252; }
-.vg .repo { background: #ff5252; color: #0a0a1a; }
-.vg h2 { color: #ff5252; }
-
-/* Footer */
-.footer { text-align: center; padding: 40px 0; color: var(--muted); font-size: 13px; border-top: 1px solid var(--border); margin-top: 40px; }
-
-/* Animations */
-@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-.project { animation: fadeUp .6s ease both; }
-.project:nth-child(1) { animation-delay: .1s; }
-.project:nth-child(2) { animation-delay: .2s; }
-.project:nth-child(3) { animation-delay: .3s; }
-.project:nth-child(4) { animation-delay: .4s; }
-.project:nth-child(5) { animation-delay: .5s; }
-
-@media (max-width: 768px) {
-  .hero h1 { font-size: 32px; }
-  .project .arch { flex-direction: column; }
-  .project .arch .arrow { transform: rotate(90deg); }
-}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+<!-- Navigation -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Jetson AGX Orin <span>Showcase</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="cortex-forge.html">Cortex Forge</a></li>
+      <li><a href="iris-flow.html">Iris Flow</a></li>
+      <li><a href="reel-forge.html">Reel Forge</a></li>
+      <li><a href="nexus-bus.html">Nexus Bus</a></li>
+      <li><a href="volt-guard.html">Volt Guard</a></li>
+    </ul>
+  </div>
+</nav>
+
 <div class="container">
+
+  <!-- Hero -->
   <div class="hero">
-    <h1>Jetson AGX Orin<br>Capability Showcase</h1>
-    <p>Five open-source projects demonstrating full exploitation of the NVIDIA Jetson AGX Orin's hardware capabilities — ML, vision, video, peripherals, and power management.</p>
+    <h1>Jetson AGX Orin<br><span>Capability Showcase</span></h1>
+    <p>Five open-source projects that demonstrate full exploitation of the NVIDIA Jetson AGX Orin's hardware — ML acceleration, vision pipelining, video processing, peripheral access, and power management. Each project follows a three-tier architecture.</p>
   </div>
 
+  <!-- SVG Flow Diagram -->
+  <div class="flow-diagram">
+    <!-- Hardware -->
+    <div class="flow-node hardware">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+        <line x1="8" y1="21" x2="16" y2="21"/>
+        <line x1="12" y1="17" x2="12" y2="21"/>
+        <path d="M6 7h12v6H6z"/>
+      </svg>
+      <span class="label">Hardware<br><small>Jetson AGX Orin</small></span>
+    </div>
+    <span class="flow-arrow">→</span>
+
+    <!-- Driver -->
+    <div class="flow-node driver">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="16 18 22 12 16 6"/>
+        <polyline points="8 6 2 12 8 18"/>
+        <line x1="10" y1="3" x2="14" y2="21"/>
+      </svg>
+      <span class="label">Kernel Driver<br><small>C · Linux Module</small></span>
+    </div>
+    <span class="flow-arrow">→</span>
+
+    <!-- Server -->
+    <div class="flow-node server">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="2" width="20" height="8" rx="2" ry="2"/>
+        <rect x="2" y="14" width="20" height="8" rx="2" ry="2"/>
+        <line x1="6" y1="6" x2="6.01" y2="6"/>
+        <line x1="6" y1="18" x2="6.01" y2="18"/>
+      </svg>
+      <span class="label">gRPC Server<br><small>C++17 · CMake</small></span>
+    </div>
+    <span class="flow-arrow">→</span>
+
+    <!-- GUI -->
+    <div class="flow-node gui">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+        <line x1="8" y1="21" x2="16" y2="21"/>
+        <line x1="12" y1="17" x2="12" y2="21"/>
+      </svg>
+      <span class="label">Desktop GUI<br><small>PySide6 · Python</small></span>
+    </div>
+  </div>
+
+  <!-- Project Cards -->
   <div class="projects">
-    <!-- Cortex Forge -->
-    <div class="project cf">
-      <h2>Cortex Forge</h2>
-      <p class="desc">Machine Learning Core — NVDLA v2.0, PVA v2.0, Ampere GPU acceleration for model loading, inference, and real-time monitoring.</p>
-      <div class="arch">
-        <span class="box">Kernel Driver</span>
-        <span class="arrow">→</span>
-        <span class="box">C++ gRPC Server</span>
-        <span class="arrow">→</span>
-        <span class="box">PySide6 GUI</span>
-      </div>
-      <div class="repos">
-        <a class="repo" href="https://github.com/soccentric-jetson-oss/cortex-forge-driver">Driver</a>
-        <a class="repo" href="https://github.com/soccentric-jetson-oss/cortex-forge-server">Server</a>
-        <a class="repo" href="https://github.com/soccentric-jetson-oss/cortex-forge-gui">GUI</a>
-      </div>
-    </div>
 
-    <!-- Iris Flow -->
-    <div class="project if">
-      <h2>Iris Flow</h2>
-      <p class="desc">Vision Pipelining Core — 16-lane MIPI CSI-2, ISP, multi-stream camera capture (up to 6 streams) with real-time ISP tuning.</p>
-      <div class="arch">
-        <span class="box">Kernel Driver</span>
-        <span class="arrow">→</span>
-        <span class="box">C++ gRPC Server</span>
-        <span class="arrow">→</span>
-        <span class="box">PySide6 GUI</span>
+    <a href="cortex-forge.html" class="project-card">
+      <div class="color-bar" style="background:var(--cf)"></div>
+      <h2 style="color:var(--cf)">Cortex Forge</h2>
+      <p class="summary">Machine Learning Core — harnesses the Ampere GPU (CUDA + Tensor Cores), dual NVDLA v2.0 deep learning accelerators, and PVA v2.0 for model inference, task scheduling, and real-time accelerator monitoring.</p>
+      <div class="tags">
+        <span class="tag" style="background:#E3F2FD;color:#1565C0">NVDLA</span>
+        <span class="tag" style="background:#E3F2FD;color:#1565C0">PVA</span>
+        <span class="tag" style="background:#E3F2FD;color:#1565C0">CUDA</span>
+        <span class="tag" style="background:#E3F2FD;color:#1565C0">TensorRT</span>
+        <span class="tag" style="background:#E3F2FD;color:#1565C0">gRPC</span>
       </div>
-      <div class="repos">
-        <a class="repo" href="https://github.com/soccentric-jetson-oss/iris-flow-driver">Driver</a>
-        <a class="repo" href="https://github.com/soccentric-jetson-oss/iris-flow-server">Server</a>
-        <a class="repo" href="https://github.com/soccentric-jetson-oss/iris-flow-gui">GUI</a>
-      </div>
-    </div>
+    </a>
 
-    <!-- Reel Forge -->
-    <div class="project rf">
-      <h2>Reel Forge</h2>
-      <p class="desc">Video Processing Core — hardware encode (4×4K60, AV1), decode (8×4K60), VIC compositor with 16-surface blending and lens distortion correction.</p>
-      <div class="arch">
-        <span class="box">Kernel Driver</span>
-        <span class="arrow">→</span>
-        <span class="box">C++ gRPC Server</span>
-        <span class="arrow">→</span>
-        <span class="box">PySide6 GUI</span>
+    <a href="iris-flow.html" class="project-card">
+      <div class="color-bar" style="background:var(--if)"></div>
+      <h2 style="color:var(--if)">Iris Flow</h2>
+      <p class="summary">Vision Pipelining Core — drives the 16-lane MIPI CSI-2 camera interface, Image Signal Processor (ISP) for raw Bayer sensors up to 24MP, and multi-stream camera handling with real-time ISP tuning and GStreamer pipeline integration.</p>
+      <div class="tags">
+        <span class="tag" style="background:#E8F5E9;color:#2E7D32">MIPI CSI-2</span>
+        <span class="tag" style="background:#E8F5E9;color:#2E7D32">ISP</span>
+        <span class="tag" style="background:#E8F5E9;color:#2E7D32">GStreamer</span>
+        <span class="tag" style="background:#E8F5E9;color:#2E7D32">V4L2</span>
       </div>
-      <div class="repos">
-        <a class="repo" href="https://github.com/soccentric-jetson-oss/reel-forge-driver">Driver</a>
-        <a class="repo" href="https://github.com/soccentric-jetson-oss/reel-forge-server">Server</a>
-        <a class="repo" href="https://github.com/soccentric-jetson-oss/reel-forge-gui">GUI</a>
-      </div>
-    </div>
+    </a>
 
-    <!-- Nexus Bus -->
-    <div class="project nb">
-      <h2>Nexus Bus</h2>
-      <p class="desc">Peripheral Access Core — GPIO, I2C (8×), SPI (3×), UART (4×), CAN bus (2×) unified through a single gRPC interface.</p>
-      <div class="arch">
-        <span class="box">Kernel Driver</span>
-        <span class="arrow">→</span>
-        <span class="box">C++ gRPC Server</span>
-        <span class="arrow">→</span>
-        <span class="box">PySide6 GUI</span>
+    <a href="reel-forge.html" class="project-card">
+      <div class="color-bar" style="background:var(--rf)"></div>
+      <h2 style="color:var(--rf)">Reel Forge</h2>
+      <p class="summary">Video Processing Core — exploits hardware video encode (4×4K60, AV1) and decode (8×4K60) blocks plus the Video Image Compositor (VIC) for 16-surface blending, lens distortion correction, scaling, and deinterlacing.</p>
+      <div class="tags">
+        <span class="tag" style="background:#FFF3E0;color:#E65100">H.264</span>
+        <span class="tag" style="background:#FFF3E0;color:#E65100">H.265</span>
+        <span class="tag" style="background:#FFF3E0;color:#E65100">AV1</span>
+        <span class="tag" style="background:#FFF3E0;color:#E65100">VIC</span>
+        <span class="tag" style="background:#FFF3E0;color:#E65100">RTSP</span>
       </div>
-      <div class="repos">
-        <a class="repo" href="https://github.com/soccentric-jetson-oss/nexus-bus-driver">Driver</a>
-        <a class="repo" href="https://github.com/soccentric-jetson-oss/nexus-bus-server">Server</a>
-        <a class="repo" href="https://github.com/soccentric-jetson-oss/nexus-bus-gui">GUI</a>
-      </div>
-    </div>
+    </a>
 
-    <!-- Volt Guard -->
-    <div class="project vg">
-      <h2>Volt Guard</h2>
-      <p class="desc">Power Management Core — configurable 15W–60W power envelope, dynamic mode switching, real-time voltage/current/temperature monitoring.</p>
-      <div class="arch">
-        <span class="box">Kernel Driver</span>
-        <span class="arrow">→</span>
-        <span class="box">C++ gRPC Server</span>
-        <span class="arrow">→</span>
-        <span class="box">PySide6 GUI</span>
+    <a href="nexus-bus.html" class="project-card">
+      <div class="color-bar" style="background:var(--nb)"></div>
+      <h2 style="color:var(--nb)">Nexus Bus</h2>
+      <p class="summary">Peripheral Access Core — unifies GPIO (40-pin header), 8 I2C controllers, 3 SPI controllers, 4 UART ports, and 2 CAN bus interfaces through a single character device and gRPC interface with bus-level fault handling.</p>
+      <div class="tags">
+        <span class="tag" style="background:#F3E5F5;color:#6A1B9A">GPIO</span>
+        <span class="tag" style="background:#F3E5F5;color:#6A1B9A">I2C</span>
+        <span class="tag" style="background:#F3E5F5;color:#6A1B9A">SPI</span>
+        <span class="tag" style="background:#F3E5F5;color:#6A1B9A">UART</span>
+        <span class="tag" style="background:#F3E5F5;color:#6A1B9A">CAN</span>
       </div>
-      <div class="repos">
-        <a class="repo" href="https://github.com/soccentric-jetson-oss/volt-guard-driver">Driver</a>
-        <a class="repo" href="https://github.com/soccentric-jetson-oss/volt-guard-server">Server</a>
-        <a class="repo" href="https://github.com/soccentric-jetson-oss/volt-guard-gui">GUI</a>
+    </a>
+
+    <a href="volt-guard.html" class="project-card">
+      <div class="color-bar" style="background:var(--vg)"></div>
+      <h2 style="color:var(--vg)">Volt Guard</h2>
+      <p class="summary">Power Management Core — controls the configurable 15W–60W power envelope, dynamic power mode switching, PMIC-level voltage rail sequencing, and real-time telemetry for voltage, current, temperature, and power draw.</p>
+      <div class="tags">
+        <span class="tag" style="background:#FFEBEE;color:#C62828">PMIC</span>
+        <span class="tag" style="background:#FFEBEE;color:#C62828">Power Modes</span>
+        <span class="tag" style="background:#FFEBEE;color:#C62828">Telemetry</span>
+        <span class="tag" style="background:#FFEBEE;color:#C62828">15-60W</span>
       </div>
-    </div>
+    </a>
+
   </div>
 
   <div class="footer">
     <p>Built on NVIDIA Jetson AGX Orin · Open source · MIT &amp; GPL-2.0 licensed</p>
-    <p style="margin-top:8px;font-size:12px;">15 repositories · 3 tiers per project · Driver → Server → GUI</p>
+    <p style="margin-top:8px;font-size:12px;color:var(--text-muted)">15 repositories · 3 tiers per project · Driver → Server → GUI</p>
   </div>
+
 </div>
 </body>
 </html>
